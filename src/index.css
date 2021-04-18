@@ -1,14 +1,134 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	margin: 0 20%;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	background-image: url("./Assets/bg-pizza.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: top center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Header CSS */
+
+header nav {
+	display: flex;
+	flex-direction: column;
+	background-color: lightcoral;
+	padding: 2%;
+}
+
+header nav a {
+	padding: 1%;
+}
+
+/* CTA div CSS */
+.cta-container {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 2%;
+	height: 500px;
+	border: 1px solid black;
+}
+.cta-container p {
+	font-size: 400%;
+	font-style: italic;
+}
+.cta-container button {
+	height: 15%;
+	width: 15%;
+}
+
+/* Food Places Container CSS */
+.food-places-container {
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.food-place {
+	background-color: lightpink;
+	width: 20%;
+	margin: 1%;
+	border-right: 10px solid lightpink;
+	border-bottom: 10px solid lightpink;
+}
+
+.food-place:hover {
+	border-right: 10px solid gray;
+	border-bottom: 10px solid gray;
+}
+
+/* PizzaForm.js CSS */
+.validation-error {
+	padding: 0;
+	margin: 0;
+	font-size: smaller;
+}
+
+.pizza-form {
+	background-color: rgba(113, 231, 230, 0.3);
+	padding: 1%;
+}
+
+.pizza-form form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.pizza-form form div {
+	background-color: lightyellow;
+	width: 50%;
+	margin: 1%;
+	padding: 1%;
+}
+
+.pizza-form div label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.pizza-form .list {
+	height: auto;
+	margin: 0;
+}
+
+/* Add To Order Div CSS */
+.order-container {
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0 30%;
+}
+
+.order-container div {
+	width: 45%;
+	background-color: lightslategray;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.order-container div input {
+	width: 60%;
+}
+
+/* Generic CSS for misc items */
+.text-area {
+	width: 90%;
+	height: 30px;
+}
+
+.text {
+	margin-bottom: 1%;
+	width: 50%;
 }
