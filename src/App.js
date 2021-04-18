@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Confirmation from "./components/Confirmation";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Pizza from "./components/Pizza";
+import Confirmation from "./lambda/Confirmation";
+import Header from "./lambda/Header";
+import Home from "./lambda/Home";
+import Pizza from "./lambda/Pizza";
 import * as yup from "yup";
 import schema from "./validation/pizzaForm";
 import Axios from "axios";
