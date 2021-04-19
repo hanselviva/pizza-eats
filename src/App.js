@@ -13,7 +13,7 @@ const initialFormValues = {
 	name: "",
 	address: "",
 	instructions: "",
-	number: "",
+	quantity: "",
 
 	// dropdown
 	size: "",
@@ -40,6 +40,7 @@ const initialFormValues = {
 const initialFormErrors = {
 	name: "please enter your name",
 	address: "please add an address",
+	quantity: "please enter order quantity",
 };
 
 const App = () => {
@@ -65,10 +66,10 @@ const App = () => {
 
 	//onChange
 	const onChangeHandler = (e) => {
-		const { name, value } = e.target;
+		const { name, value, type, checked } = e.target;
 		setFormValues({
 			...formValues,
-			[name]: value,
+			[name]: type === "checkbox" ? checked : value,
 		});
 	};
 
@@ -92,6 +93,7 @@ const App = () => {
 		setFormValues({
 			...formValues,
 			[name]: type === "checkbox" ? checked : value,
+			// [name]: type === ("text" || "number") ? value : checked,
 		});
 	};
 

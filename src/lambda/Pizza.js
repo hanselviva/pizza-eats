@@ -14,13 +14,20 @@ const toppings = [
 const sauces = ["Original Red", "Garlic Ranch", "BBQ Sauce", "Spinach Alfredo"];
 
 // Add to Order Div at the Bottom of Pizza Form
-const AddToOrder = ({ submitDisabled, submitHandler }) => {
+const AddToOrder = ({
+	submitDisabled,
+	submitHandler,
+	formErrors,
+	quantityValidator,
+}) => {
 	return (
 		<div className="order-container">
 			<div>
 				{" "}
-				<b>Number </b>
-				<input type="number" name="number" />
+				<b>Quantity </b>
+				{/* VALIDATION ERROR FOR QUANTITY */}
+				<p className="validation-error">{formErrors.quantity}</p>
+				<input type="number" name="quantity" onChange={quantityValidator} />
 			</div>
 			<div>
 				{" "}
@@ -130,7 +137,7 @@ const Pizza = (props) => {
 						<h4> Special Instructions</h4>
 						<input
 							className="text-area"
-							type="textarea"
+							type="text"
 							name="instructions"
 							value={formValues.instructions}
 							onChange={onChangeHandler}
@@ -169,6 +176,8 @@ const Pizza = (props) => {
 				<AddToOrder
 					submitHandler={submitHandler}
 					submitDisabled={submitDisabled}
+					formErrors={formErrors}
+					quantityValidator={nameAndAddressValidator}
 				/>
 			</form>
 		</div>
