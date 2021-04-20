@@ -20,6 +20,10 @@ header nav {
 	padding: 2%;
 }
 
+header nav h1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 header nav a {
 	padding: 1%;
 }
