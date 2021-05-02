@@ -6,7 +6,7 @@ const CallToAction = () => {
 		<div className="cta-container">
 			<p>Your favorite food, delivered while coding.</p>
 			<Link to="/pizza">
-				<button> Pizza? </button>
+				<button> Make Your Own Pizza! </button>
 			</Link>
 		</div>
 	);

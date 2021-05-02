@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Confirmation from "./lambda/Confirmation";
 import Header from "./lambda/Header";
 import Home from "./lambda/Home";
@@ -49,6 +49,8 @@ const App = () => {
 	const [formErrors, setFormErrors] = useState(initialFormErrors);
 	const [submitDisabled, setSubmitDisabled] = useState(true);
 
+	const history = useHistory();
+
 	//POST request triggered onSubmit
 	const sendOrder = (newOrder) => {
 		Axios.post("https://reqres.in/api/users", newOrder).then((res) => {
@@ -62,6 +64,7 @@ const App = () => {
 		e.preventDefault();
 		setFormValues({ ...formValues, [e.target.name]: e.target.value });
 		sendOrder(formValues);
+		history.push("/confirmation");
 	};
 
 	//onChange
@@ -102,38 +105,36 @@ const App = () => {
 		schema.isValid(formValues).then((valid) => {
 			setSubmitDisabled(!valid);
 		});
-	}, [formValues.name, formValues.address]);
+	}, [formValues.name, formValues.address, formValues.quantity]);
 
 	return (
-		<Router>
-			<div>
-				{/*Header is constant so it's not inside Switch */}
-				<Header />
+		<div>
+			{/*Header is constant so it's not inside Switch */}
+			<Header />
 
-				{/* this area changes based on what user clicks to its wrapped inside Switch */}
-				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
+			{/* this area changes based on what user clicks to its wrapped inside Switch */}
+			<Switch>
+				<Route exact path="/">
+					<Home />
+				</Route>
 
-					{/* PizzaForm page loads when CTA is clicked. Check CallToAction.js */}
-					<Route path="/pizza">
-						<Pizza
-							formValues={formValues}
-							submitHandler={submitHandler}
-							onChangeHandler={onChangeHandler}
-							validator={validator}
-							formErrors={formErrors}
-							submitDisabled={submitDisabled}
-						/>
-					</Route>
+				{/* PizzaForm page loads when CTA is clicked. Check CallToAction.js */}
+				<Route path="/pizza">
+					<Pizza
+						formValues={formValues}
+						submitHandler={submitHandler}
+						onChangeHandler={onChangeHandler}
+						validator={validator}
+						formErrors={formErrors}
+						submitDisabled={submitDisabled}
+					/>
+				</Route>
 
-					<Route path="/confirmation">
-						<Confirmation />
-					</Route>
-				</Switch>
-			</div>
-		</Router>
+				<Route path="/confirmation">
+					<Confirmation />
+				</Route>
+			</Switch>
+		</div>
 	);
 };
 export default App;

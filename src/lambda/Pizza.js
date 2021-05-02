@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const sizes = ["Small", "Medium", "Large", "Extra Large"];
 const toppings = [
@@ -40,6 +41,7 @@ const AddToOrder = ({
 };
 
 const Pizza = (props) => {
+	const history = useHistory();
 	const {
 		formValues,
 		submitHandler,
@@ -48,6 +50,11 @@ const Pizza = (props) => {
 		formErrors,
 		submitDisabled,
 	} = props;
+
+	const redirect = (e) => {
+		submitHandler(e);
+		history.push("/confirmation");
+	};
 
 	// Name and Address validator
 	const nameAndAddressValidator = (e) => {
@@ -58,7 +65,7 @@ const Pizza = (props) => {
 	return (
 		<div className="pizza-form">
 			<h3>Build Your Own Pizza!</h3>
-			<form onSubmit={submitHandler}>
+			<form onSubmit={redirect}>
 				{/* SIZES DROPDOWN SELECT */}
 				<div>
 					<label>
