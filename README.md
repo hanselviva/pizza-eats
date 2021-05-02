@@ -1,2 +1,3 @@
-The purpose of this app is to practice my React skills. This app is complete from routing to form management and validation, post requests, and even cypress testing.
+The purpose of this project is to practice my JavaScript React skills. This app is complete from routing to form management and validation, post requests, and even cypress testing. The basic styling is added for comprehensibility purposes.
+
 This has been deployed at: https://angry-tesla-318d6e.netlify.app/
