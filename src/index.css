@@ -136,3 +136,11 @@ header nav a {
 	margin-bottom: 1%;
 	width: 50%;
 }
+
+/* Confirmation CSS */
+.confirmation-container {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 2%;
+	height: 500px;
+	border: 1px solid black;
+}
