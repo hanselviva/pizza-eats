@@ -108,7 +108,7 @@ const App = () => {
 	}, [formValues.name, formValues.address, formValues.quantity]);
 
 	return (
-		<div>
+		<div className="App">
 			{/*Header is constant so it's not inside Switch */}
 			<Header />
 

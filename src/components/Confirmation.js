@@ -8,10 +8,14 @@ const Confirmation = (props) => {
 		<div className="confirmation-container">
 			{order.map((order) => {
 				return (
-					<div>
-						<h3> Yaay! Thank you, {order.name}. Your Pizza is on it's way!</h3>
+					<div key={order.id}>
+						<h3> Yaaay! Your Pizza is on it's way!</h3>
 						<h4> Order#: {order.id} </h4>
+						<h4> Will be sent to: {order.name} </h4>
 						<h4>Address: {order.address} </h4>
+						{order.instructions && (
+							<h4> Instructions: {order.instructions} </h4>
+						)}
 					</div>
 				);
 			})}
